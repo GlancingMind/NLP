@@ -6,7 +6,7 @@ import time
 class PalChatbot:
     def __init__(self):
         self.running = True
-        self.debug = True
+        self.debug = False 
         self.dictionary = EnglishDictionary()  # Initialize EnglishDictionary
 
     def say(self, text):
@@ -276,6 +276,7 @@ class PalChatbot:
         user_input = self.ask("So... how are you doing today? :-)")
         while self.running:
             if user_input.lower() == "exit":
+                print("HALLOOOO")
                 self.running = False
                 continue
 
