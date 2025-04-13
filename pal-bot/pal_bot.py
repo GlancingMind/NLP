@@ -175,8 +175,9 @@ class PalChatbot:
         text = self.normalize_text(text)
 
         # Split input into sentences and process the first meaningful one for dynamic response
-        sentences = re.split(r'[.!?]+', text)
+        sentences = [s for s in re.split(r'[.!?]+\s*', text) if s.strip()]
         processed_dynamically = False
+        
         for sentence in sentences:
             sentence = sentence.strip()
             if not sentence:
@@ -207,7 +208,7 @@ class PalChatbot:
         introduction_attempts = 0
 
         intoduction_patterns = [
-            r"i[' ]?m (\w+)",
+            r"i[' ]?m (\w+)", # TODO: not necessary due to the normalization?
             r"i am (\w+)",
             r"you can call me (\w+)",
             r"my name is (\w+)",
