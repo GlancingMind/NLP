@@ -20,7 +20,12 @@ class PalChatbot:
         Print the text to the console and return user input.
         """
         self.say(prompt)
-        return input("You: ").strip()
+        
+        user_input = input("You: ").strip() 
+        if user_input.lower() == "exit":
+            self.running = False
+        
+        return user_input 
 
     def extract_subject_verb_object(self, sentence):
         """
@@ -276,7 +281,6 @@ class PalChatbot:
         user_input = self.ask("So... how are you doing today? :-)")
         while self.running:
             if user_input.lower() == "exit":
-                print("HALLOOOO")
                 self.running = False
                 continue
 
