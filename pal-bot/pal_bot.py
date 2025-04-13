@@ -168,6 +168,7 @@ class PalChatbot:
         }
         for shortform, longform in contractions.items():
             text = re.sub(rf"\b{shortform}\b", longform, text, flags=re.IGNORECASE)
+        
         return text
 
     def analyze_and_respond(self, text):
@@ -208,15 +209,13 @@ class PalChatbot:
         introduction_attempts = 0
 
         intoduction_patterns = [
-            r"i[' ]?m (\w+)", # TODO: not necessary due to the normalization?
             r"i am (\w+)",
             r"you can call me (\w+)",
             r"my name is (\w+)",
-            r"it's (\w+)",
+            r"it is (\w+)",
             r"this is (\w+)",
             r"i am called (\w+)",
             r"they call me (\w+)",
-            r"the name's (\w+)",
             r"^(\w+)$",
         ]
 
