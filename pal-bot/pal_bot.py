@@ -190,7 +190,7 @@ class PalChatbot:
             dynamic_response = self.craft_dynamic_response(sentence, subject, verb, obj, adj)
 
             if dynamic_response:
-                print(dynamic_response)
+                self.ask(dynamic_response)
                 processed_dynamically = True
                 break # Respond based on the first sentence that yields a dynamic response
 
